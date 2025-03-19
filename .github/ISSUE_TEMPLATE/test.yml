@@ -1,0 +1,106 @@
+name: Marketing Support Request
+description: Please complete this form with as much detail as possible to help us support your project effectively, ideally 1 month before due date for optimal support.
+title: "[Marketing Request]: "
+labels: "Marketing"
+projects: "github/9912" 
+assignees:
+  - adrifern
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please complete this form with as much detail as possible to help us support your project effectively, ideally 1 month before project due date for optimal support.
+
+  - type: textarea
+    id: project_description
+    attributes:
+      label: Project Description
+      description: "Provide a concise summary of the project, including its purpose, target audience, and key objectives."
+      placeholder: "Brief project description..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: audience
+    attributes:
+      label: Target Audience
+      description: "Who are you trying to reach with this project? Select all that apply."
+      options:
+        - label: Students
+        - label: Educators
+        - label: Schools/Institutions
+        - label: Partners
+        - label: All of the above
+        - label: Other (please specify below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: audience_other
+    attributes:
+      label: If 'Other', please specify
+      placeholder: "Please specify other audiences here..."
+
+  - type: textarea
+    id: desired_action
+    attributes:
+      label: Desired Action from Audience
+      description: "What is the one action you would like your audience to take after encountering the marketing materials?"
+      placeholder: "e.g., Visit a website, sign up, attend an event..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: marketing_support_categories
+    attributes:
+      label: Marketing Support Categories
+      description: "Select the type(s) of marketing support you need."
+      options:
+        - label: Social Media Support
+        - label: Email Marketing Support
+        - label: Editorial & Proofreading Support
+        - label: Design & Assets Support
+        - label: Other (please specify below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: specific_requirements
+    attributes:
+      label: Specific Requirements
+      description: "Detail any specific requests or guidelines for the selected marketing support categories."
+      placeholder: "Please detail your specific requirements here..."
+
+  - type: input
+    id: target_launch_date
+    attributes:
+      label: Target Launch Date
+      description: "When do you plan to launch or publish this project?"
+      placeholder: "MM/DD/YYYY"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: due_date_flexibility
+    attributes:
+      label: Is the Due Date Flexible?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+
+  - type: textarea
+    id: date_range_or_reason
+    attributes:
+      label: If 'Yes', provide a desired date range. If 'No', explain why.
+      placeholder: "Please detail the flexibility of your due date or the reason for the specific due date..."
+
+  - type: textarea
+    id: assets_and_resources
+    attributes:
+      label: Assets and Resources Available
+      description: "List any existing assets or resources that should be incorporated."
+      placeholder: "Existing assets or resources..."
+
