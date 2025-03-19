@@ -1,3 +1,4 @@
+
 name: Data Request
 description: "Request new data or report broken data points"
 title: "[DATA REQUEST]:"
@@ -17,6 +18,7 @@ body:
     attributes:
       label: "Request Type"
       description: "Check the box that applies"
+      multiple: false
       options:
         - label: "New Data Request"
         - label: "Fix Broken Data Points"
