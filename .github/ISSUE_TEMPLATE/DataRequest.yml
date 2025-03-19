@@ -1,4 +1,4 @@
-name: Data Request
+name: 📊 Data Request
 description: Request new data or report broken data points
 title: "[DATA REQUEST]: "
 labels: ["data-request"]
@@ -130,5 +130,5 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for your request! We will review it and get back to you as soon as possible.
+        Thank you for your request! ❤️ We will review it and get back to you as soon as possible.
         If you have any questions, please feel free to reach out.
