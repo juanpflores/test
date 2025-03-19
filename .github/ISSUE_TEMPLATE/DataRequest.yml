@@ -15,88 +15,88 @@ body:
   - type: checkboxes
     id: request_type
     attributes:
-      label: "Request Type"
+      label: Request Type
       description: "Check the box that applies"
       multiple: false
       options:
-        - label: "New Data Request"
-        - label: "Fix Broken Data Points"
+        - label: New Data Request
+        - label: Fix Broken Data Points
 
   - type: textarea
     id: description
     attributes:
-      label: "Description"
+      label: Description
       description: "Provide a clear description of the new data needed or the issue with existing data."
 
   - type: textarea
     id: purpose
     attributes:
-      label: "Purpose/Use Case"
+      label: Purpose/Use Case
       description: "Explain how this data will be used or why it needs to be fixed."
 
   - type: textarea
     id: goal_alignment
     attributes:
-      label: "Goal Alignment"
+      label: Goal Alignment
       description: "Explain how this request or fix supports an EDU or GitHub goal or target."
 
   - type: textarea
     id: impact
     attributes:
-      label: "Impact"
+      label: Impact
       description: "Describe how this request or broken data issue affects your work or decision-making."
 
   - type: textarea
     id: specific_data_points
     attributes:
-      label: "Specific Data Points"
+      label: Specific Data Points
       description: "For new data: list the metrics or fields needed. For broken data: specify which metrics or fields are incorrect or missing."
 
   - type: input
     id: data_format
     attributes:
-      label: "Data Formatting"
+      label: Data Formatting
       description: "For new data: desired format (Table, Graph, etc.). For broken data: current or expected format."
 
   - type: checkboxes
     id: time_range
     attributes:
-      label: "Time Range"
+      label: Time Range
       description: "Specify the time period the data should cover or if it will be Dynamic (example: Last 30 days)."
       
 
   - type: input
     id: segmentation
     attributes:
-      label: "Segmentation"
+      label: Segmentation
       description: "Indicate if data needs to be broken down by region, program, etc."
 
   - type: input
     id: data_location
     attributes:
-      label: "Data Location (If Applicable)"
+      label: Data Location (If Applicable)
       description: "Where is the existing or broken data displayed or stored? (Dashboard URL, report name, etc.)"
 
   - type: textarea
     id: expected_correct_values
     attributes:
-      label: "Expected Correct Values (If Known)"
+      label: Expected Correct Values (If Known)
       description: "Detail what the correct data should be, if known. Provide a few examples."
 
   - type: input
     id: timeline
     attributes:
-      label: "Timeline"
+      label: Timeline
       description: "When do you need this data or fix by?"
 
   - type: textarea
     id: stakeholders
     attributes:
-      label: "Stakeholders"
+      label: Stakeholders
       description: "Who is interested in or impacted by this request or fix?"
 
   - type: textarea
     id: additional_context
     attributes:
-      label: "Additional Context"
+      label: Additional Context
       description: "Add screenshots, links, or any extra details that might help."
