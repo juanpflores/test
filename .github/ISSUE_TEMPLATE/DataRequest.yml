@@ -1,6 +1,6 @@
 name: Data Request
 description: "Request new data or report broken data points"
-title: "[DATA REQUEST]"
+title: "[DATA REQUEST]:"
 labels: ["data-request"]
 assignees: 
   - juanpflores
@@ -9,8 +9,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for submitting a data request!  
-        Use the fields below for both new data requests and fixing broken data.
+        Thank you for submitting a data request! Use the fields below for both new data requests and fixing broken data.
   
   - type: checkboxes
     id: request_type
@@ -20,24 +19,40 @@ body:
       options:
         - label: "New Data Request"
         - label: "Fix Broken Data Points"
+      validations:
+        required: true
 
   - type: textarea
     id: description
     attributes:
       label: "Description"
       description: "Provide a clear description of the new data needed or the issue with existing data."
+    validations:
+      required: true
 
   - type: textarea
     id: purpose
     attributes:
       label: "Purpose/Use Case"
       description: "Explain how this data will be used or why it needs to be fixed."
+    validations:
+      required: true
 
   - type: textarea
     id: goal_alignment
     attributes:
       label: "Goal Alignment"
       description: "Explain how this request or fix supports an EDU or GitHub goal or target."
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: "Impact"
+      description: "Describe how this request or broken data issue affects your work or decision-making."
+    validations:
+      required: true
 
   - type: textarea
     id: specific_data_points
@@ -49,13 +64,17 @@ body:
     id: data_format
     attributes:
       label: "Data Formating"
-      description: "For new data: desired format (CSV, JSON, etc.). For broken data: current or expected format."
+      description: "For new data: desired format (Table, Graph, etc.). For broken data: current or expected format."
+    validations:
+      required: true
 
-  - type: input
+  - type: checkboxes
     id: time_range
     attributes:
       label: "Time Range"
       description: "Specify the time period the data should cover or if it will be Dynamic (example: Last 30 days)."
+    validations:
+      required: true
 
   - type: input
     id: segmentation
@@ -75,23 +94,21 @@ body:
       label: "Expected Correct Values (If Known)"
       description: "Detail what the correct data should be, if known. Provide a few examples."
 
-  - type: textarea
-    id: impact
-    attributes:
-      label: "Impact"
-      description: "Describe how this request or broken data issue affects your work or decision-making."
-
   - type: input
     id: timeline
     attributes:
       label: "Timeline"
       description: "When do you need this data or fix by?"
+    validations:
+      required: true
 
   - type: textarea
     id: stakeholders
     attributes:
       label: "Stakeholders"
       description: "Who is interested in or impacted by this request or fix?"
+    validations:
+      required: true
 
   - type: textarea
     id: additional_context
