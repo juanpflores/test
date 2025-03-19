@@ -17,7 +17,6 @@ body:
     attributes:
       label: Request Type
       description: "Check the box that applies"
-      multiple: false
       options:
         - label: New Data Request
         - label: Fix Broken Data Points
