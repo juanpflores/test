@@ -57,7 +57,7 @@ body:
       label: Data Formatting
       description: "For new data: desired format (Table, Graph, etc.). For broken data: current or expected format."
 
-  - type: checkboxes
+  - type: input
     id: time_range
     attributes:
       label: Time Range
