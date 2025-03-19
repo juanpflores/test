@@ -1,6 +1,6 @@
 name: Data Request
-description: "Request new data or report broken data points"
-title: "[DATA REQUEST]:"
+description: Request new data or report broken data points
+title: "[DATA REQUEST]: "
 labels: ["data-request"]
 assignees: 
   - juanpflores
