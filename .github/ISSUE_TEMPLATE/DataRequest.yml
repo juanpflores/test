@@ -109,6 +109,7 @@ body:
     attributes:
       label: Timeline
       description: "When do you need this data or fix by?"
+      placeholder: "MM/DD/YYYY"
     validations:
       required: true
 
@@ -125,3 +126,9 @@ body:
     attributes:
       label: Additional Context
       description: "Add screenshots, links, or any extra details that might help."
+
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your request! We will review it and get back to you as soon as possible.
+        If you have any questions, please feel free to reach out.
