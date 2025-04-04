@@ -1,0 +1,83 @@
+name: Data Request Processing
+on:
+  issues:
+    types:
+      - opened
+permissions:
+  contents: read
+  issues: write
+jobs:
+  parse_data_request:
+    if: ${{ github.event.label.name == 'data-request' }}
+    runs-on: ubuntu-latest
+
+    outputs:
+      output: ${{ steps.parse_issue.outputs.result }}
+      applyChanges: ${{ steps.parse_issue.outputs.applyChanges }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse data request issue
+        uses: actions/github-script@v7
+        id: parse_issue
+        with:
+          script: |
+            const parsescript = require('.github/workflows/datarequest-parsing.js')
+            return parsescript({github, context})
+
+  update_issue:
+    name: Update Data Request Issue
+    runs-on: ubuntu-latest
+    needs: parse_data_request
+    if: needs.parse_data_request.outputs.applyChanges == 'true'
+    steps:
+      - name: Add data request labels
+        uses: actions/github-script@v7
+        env:
+          PARSED_DATA: ${{ needs.parse_data_request.outputs.output }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const labelsToAdd = JSON.parse(process.env.PARSED_DATA).labelsToAdd
+            
+            await github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: labelsToAdd
+            })
+            
+      - name: Update body and title of issue
+        uses: actions/github-script@v7
+        env:
+          PARSED_DATA: ${{ needs.parse_data_request.outputs.output }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const parsedData = JSON.parse(process.env.PARSED_DATA)
+
+            await github.rest.issues.update({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: parsedData.newTitle,
+              body: parsedData.newBody
+            })
+          
+      - name: Add comment with next steps
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Thank you for submitting this data request! It has been formatted and categorized. A team member will review your request shortly.`
+            })
+            
+      # - name: Add to Data Requests Project Board
+      #   uses: actions/add-to-project@main
+      #   with:
+      #     project-url: https://github.com/orgs/github/projects/6623/views/1
+      #     github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
