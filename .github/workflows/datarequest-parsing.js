@@ -59,19 +59,28 @@ ${description}
 
 <table>
 <tr>
-  <th width="50%">Purpose & Alignment</th>
-  <th width="50%">Impact & Timeline</th>
+  <th width="30%">Item</th>
+  <th width="70%">Response</th>
 </tr>
 <tr>
-  <td>
-    <strong>Purpose:</strong><br>${purpose}<br><br>
-    <strong>Goal Alignment:</strong><br>${goalAlignment}
-  </td>
-  <td>
-    <strong>Impact:</strong><br>${impact}<br><br>
-    <strong>Timeline:</strong> ${timeline}<br>
-    <strong>Stakeholders:</strong> ${stakeholders}
-  </td>
+  <td><strong>Purpose</strong></td>
+  <td>${purpose}</td>
+</tr>
+<tr>
+  <td><strong>Goal Alignment</strong></td>
+  <td>${goalAlignment}</td>
+</tr>
+<tr>
+  <td><strong>Impact</strong></td>
+  <td>${impact}</td>
+</tr>
+<tr>
+  <td><strong>Timeline</strong></td>
+  <td>${timeline}</td>
+</tr>
+<tr>
+  <td><strong>Stakeholders</strong></td>
+  <td>${stakeholders}</td>
 </tr>
 </table>
 
@@ -79,23 +88,32 @@ ${description}
 
 <table>
 <tr>
-  <th width="33%">Data Points</th>
-  <th width="33%">Format & Range</th>
-  <th width="33%">Additional Info</th>
+  <th width="30%">Item</th>
+  <th width="70%">Response</th>
 </tr>
 <tr>
-  <td>
-    <strong>Specific Data Points:</strong><br>${specificDataPoints}
-  </td>
-  <td>
-    <strong>Format:</strong> ${dataFormat}<br>
-    <strong>Time Range:</strong> ${timeRange}<br>
-    <strong>Segmentation:</strong> ${segmentation}
-  </td>
-  <td>
-    <strong>Current Location:</strong> ${dataLocation}<br>
-    <strong>Expected Values:</strong><br>${expectedValues}
-  </td>
+  <td><strong>Specific Data Points</strong></td>
+  <td>${specificDataPoints}</td>
+</tr>
+<tr>
+  <td><strong>Format</strong></td>
+  <td>${dataFormat}</td>
+</tr>
+<tr>
+  <td><strong>Time Range</strong></td>
+  <td>${timeRange}</td>
+</tr>
+<tr>
+  <td><strong>Segmentation</strong></td>
+  <td>${segmentation}</td>
+</tr>
+<tr>
+  <td><strong>Current Location</strong></td>
+  <td>${dataLocation}</td>
+</tr>
+<tr>
+  <td><strong>Expected Values</strong></td>
+  <td>${expectedValues}</td>
 </tr>
 </table>
 `
