@@ -131,7 +131,8 @@ ${additionalContext}
 ## 🔄 Request Status Tracking
 | Status | Date | Notes |
 |--------|------|-------|
-| 🟡 Received | ${new Date().toISOString().split('T')[0]} | Request received and being reviewed |
+| ✅ Received | ${new Date().toISOString().split('T')[0]} | Request received |
+| 🔄 Review | ${new Date().toISOString().split('T')[0]} | Review pending |
 |  |  |  |
 `
 
