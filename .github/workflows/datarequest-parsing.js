@@ -47,9 +47,7 @@ function reformatBody(body) {
     const additionalContext = body.getFormValue('Additional Context') || 'None provided'
 
     // Create a visually appealing header
-    let newBody = `# 📊 Data Request: ${requestType}
-
-## 📋 Request Overview
+    let newBody = `## 📋 Request Overview
 ${description}
 
 `
@@ -132,7 +130,7 @@ ${additionalContext}
 | Status | Date | Notes |
 |--------|------|-------|
 | ✅ Received | ${new Date().toISOString().split('T')[0]} | Request received |
-| 🔄 Review | ${new Date().toISOString().split('T')[0]} | Review pending |
+| 🔄 Review | ${new Date().toISOString().split('T')[0]} | Pending review |
 |  |  |  |
 `
 
@@ -167,41 +165,8 @@ module.exports = ({ github, context }) => {
         labelsToAdd.push('new-data')
     }
     if (requestTypes.includes('Fix Broken Data Points')) {
-        labelsToAdd.push('data-fix')
+        labelsToAdd.push('fix-data')
     }
-    
-    // Determine priority based on timeline
-    const timeline = body.getFormValue('Timeline')
-    const today = new Date()
-    let targetDate = null
-    
-    try {
-        // Try to parse date in MM/DD/YYYY format
-        const [month, day, year] = timeline.split('/').map(Number)
-        targetDate = new Date(year, month - 1, day)
-        
-        const daysDiff = Math.ceil((targetDate - today) / (1000 * 60 * 60 * 24))
-        
-        if (daysDiff <= 7) {
-            labelsToAdd.push('priority-high')
-        } else if (daysDiff <= 30) {
-            labelsToAdd.push('priority-medium')
-        } else {
-            labelsToAdd.push('priority-low')
-        }
-    } catch (e) {
-        // If date parsing fails, don't add priority label
-        console.log('Could not parse timeline for priority: ', e)
-    }
-    
-    // Format new title based on request type
-    const requestType = requestTypes.length > 0 ? requestTypes[0] : 'Data Request'
-    const description = body.getFormValue('Description')
-    const shortDescription = description.length > 60 
-        ? description.substring(0, 57) + '...' 
-        : description
-        
-    const newTitle = `[${requestType}] ${shortDescription}`
     
     // Create formatted body
     const newBody = reformatBody(body)
@@ -209,7 +174,6 @@ module.exports = ({ github, context }) => {
     console.log('::set-output name=applyChanges::true')
     return {
         labelsToAdd: labelsToAdd,
-        newTitle: newTitle,
         newBody: newBody
     }
 }
